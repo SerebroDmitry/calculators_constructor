@@ -1,23 +1,41 @@
-import logo from './logo.svg';
+import React from 'react';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div className='RunOrConstDiv'>
+          Runtime/Constructor
+      </div>
+      <div className='ScreenDiv'>
+        
+      </div>
+      <div className='InnerScreenDiv'>
+        <span className='ResultSpan'>0</span>
+      </div>
+      <div className='ActionsDiv'>
+        <button className='DivideButton'>
+          /
+        </button>
+        <button className='MultipleButton'>
+          x
+        </button>
+        <button className='MinusButton'>
+          -
+        </button>
+        <button className='PlusButton'>
+          +
+        </button>
+      </div>
+      <div className='NumbersDiv'>
+
+      </div>
+      <div className='EqualDiv'>
+        <button className='EqualButton'>=</button>
+      </div>
+      <div className='MainAreaDiv'>
+
+      </div>
     </div>
   );
 }
