@@ -5,7 +5,15 @@ function App() {
   return (
     <div className="App">
       <div className='RunOrConstDiv'>
-          Runtime/Constructor
+          <div className="RunOrConstDiv-item">
+            <div class="eye"></div>
+            <input id="radio-1" type="radio" name="radio" value="1" />
+            <label htmlFor="radio-1">Runtime</label>
+          </div>
+          <div className="RunOrConstDiv-item">
+            <input id="radio-2" type="radio" name="radio" value="2" defaultChecked/>
+            <label htmlFor="radio-2">Constructor</label>
+          </div>
       </div>
       <div className='ScreenDiv'>
         
@@ -34,7 +42,7 @@ function App() {
         <button className='EqualButton'>=</button>
       </div>
       <div className='MainAreaDiv'>
-
+        
       </div>
     </div>
   );

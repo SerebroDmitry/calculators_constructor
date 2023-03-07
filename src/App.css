@@ -1,42 +1,119 @@
+/*подключили шрифт Inter*/
 @font-face {
   font-family: 'Inter';
   src: url(/src/fonts/Inter.ttf);
 }
-
+/*выставили ширину и высоту основного окна, а также его бэкграунд*/
 .App {
   background-color: white;
   width: 695px;
   height: 640px;     
 }
 
+/*стили для переключателя рантайм/конструктор*/
 .RunOrConstDiv {
   display: flex;
+	overflow: hidden;
   flex-direction: row;
-  align-items: center;
+  align-items: start;
+  justify-content: center;
   padding: 1px;
-  
   position: absolute;
   width: 243px;
   height: 38px;
   margin-left: 372px;
   margin-top: 38px;
-  
   background: #F3F4F6;
   border-radius: 6px;
 }
+.RunOrConstDiv-item {
+	display: flex;
+	float: left;   
+  height: 36px;
+  background: #F3F4F6;
+}
+.RunOrConstDiv input[type=radio] {
+	display: none;
+}
+.RunOrConstDiv label {
+	display: flex;
+  align-items: center;
+	cursor: pointer;
+	padding: 0px 15px;
+	line-height: 34px;
+	user-select: none;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 15px;
+  color: #4D5562;
+}
+.RunOrConstDiv .RunOrConstDiv-item:first-child label {
+  background: #F3F4F6;
+  width: 85px;
+  height: 36px;
+}
+.RunOrConstDiv .RunOrConstDiv-item:last-child label {
+  background: #F3F4F6;
+  width: 97px;
+  height: 36px;
+}
+/* Checked */
+.RunOrConstDiv input[type=radio]:checked + label {
+	background: #ffffff;
+  border: 1px solid #E2E3E5;
+  border-radius: 5px;
+}
+.eye {
+  position: relative;
+  display: block;
+  transform: scale(var(--ggs,1));
+  width: 24px;
+  height: 18px;
+  border-bottom-right-radius: 100px;
+  border-bottom-left-radius: 100px;
+  overflow: hidden;
+  box-sizing: border-box;
+  margin-top: 8px;
+  margin-left: 50px;
+  margin-right: -10px;
 
+}
+.eye::after,
+.eye::before {
+  content: "";
+  display: block;
+  border-radius: 100px;
+  position: absolute;
+  box-sizing: border-box
+}
+.eye::after {
+  top: 2px;
+  box-shadow:
+      inset 0 -8px 0 2px,
+      inset 0 0 0 2px;
+  width: 24px;
+  height: 24px
+}
+.eye::before {
+  width: 8px;
+  height: 8px;
+  border: 2px solid;
+  bottom: 4px;
+  left: 8px
+}
+
+
+
+/*стили для окна с результатом вычисления*/
 .ScreenDiv {
   position: absolute;
   width: 240px;
   height: 60px;
   margin-left: 76px;
   margin-top: 106px;
-
-  /* white */
-
   background: #ffffff;
-  /* shadow-md */
-
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
