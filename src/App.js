@@ -2,18 +2,29 @@ import React from 'react';
 import './App.css';
 
 function App() {
+
+  function Runtime() {
+    console.log('Runtime')
+    document.getElementById('eye').style.color = "#5D5FEF"
+  }
+
+  function Construct() {
+    console.log('Constructor')
+    document.getElementById('eye').style.color = "#4D5562"
+  }
+
   return (
     <div className="App">
       <div className='RunOrConstDiv'>
           <div className="RunOrConstDiv-item">
-            <div className="eye"></div>
-            <input id="radio-1" type="radio" name="radio" value="1" />
+            <div className="eye" id='eye'></div>
+            <input id="radio-1" type="radio" name="radio" value="1" onChange={() => Runtime()}/>
             <label htmlFor="radio-1">Runtime</label>
           </div>
           <div className="RunOrConstDiv-item">
-            <div className="arrowsDiv"></div>
-            <div className="arrowsDiv2"></div>
-            <input id="radio-2" type="radio" name="radio" value="2" defaultChecked/>
+            <div className="arrowsDiv" id='arrowsDiv'></div>
+            <div className="arrowsDiv2" id='arrowsDiv2'></div>
+            <input id="radio-2" type="radio" name="radio" value="2" defaultChecked onChange={() => Construct()}/>
             <label htmlFor="radio-2">Constructor</label>
           </div>
       </div>
