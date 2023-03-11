@@ -6,11 +6,13 @@ function App() {
     <div className="App">
       <div className='RunOrConstDiv'>
           <div className="RunOrConstDiv-item">
-            <div class="eye"></div>
+            <div className="eye"></div>
             <input id="radio-1" type="radio" name="radio" value="1" />
             <label htmlFor="radio-1">Runtime</label>
           </div>
           <div className="RunOrConstDiv-item">
+            <div className="arrowsDiv"></div>
+            <div className="arrowsDiv2"></div>
             <input id="radio-2" type="radio" name="radio" value="2" defaultChecked/>
             <label htmlFor="radio-2">Constructor</label>
           </div>
