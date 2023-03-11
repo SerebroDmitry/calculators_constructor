@@ -38,7 +38,39 @@ function App() {
         </button>
       </div>
       <div className='NumbersDiv'>
-
+        <button className='Button7'>
+          7
+        </button>
+        <button className='Button8'>
+          8
+        </button>
+        <button className='Button9'>
+          9
+        </button>
+        <button className='Button4'>
+          4
+        </button>
+        <button className='Button5'>
+          5
+        </button>
+        <button className='Button6'>
+          6
+        </button>
+        <button className='Button1'>
+          1
+        </button>
+        <button className='Button2'>
+          2
+        </button>
+        <button className='Button3'>
+          3
+        </button>
+        <button className='Button0'>
+          0
+        </button>
+        <button className='Button00'>
+          ,
+        </button>
       </div>
       <div className='EqualDiv'>
         <button className='EqualButton'>=</button>
