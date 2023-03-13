@@ -3,6 +3,8 @@ import { useEffect } from 'react';
 import './App.css';
 
 function App() {
+  let druggedItem = null
+
   useEffect(() => {
     //устанавливаем по умолчанию конструктор
     document.getElementById('radio-2').checked = true
@@ -35,13 +37,29 @@ function App() {
 
   function Move(e) {
     e.preventDefault()
-    console.log(e.currentTarget.id)
-    document.getElementById('MainAreaDiv').style.backgroundColor = "#F0F9FF"
+    console.log('drug')
+    druggedItem = e.target
+    console.log(druggedItem)
+
   }
   function Put(e) {
     e.preventDefault()
     console.log('put')
     document.getElementById('MainAreaDiv').style.backgroundColor = "#ffffff"
+  }
+  function DrugIsOver(e) {
+    e.preventDefault()
+    document.getElementById('MainAreaDiv').style.backgroundColor = "#F0F9FF"
+  }
+  function DrugIsLeave(e) {
+    e.preventDefault()
+    document.getElementById('MainAreaDiv').style.backgroundColor = "#ffffff"
+  }
+  function DropItem(e) {
+    e.preventDefault()
+    const clone = druggedItem.cloneNode(true)
+    console.log('drop')
+    document.getElementById('MainAreaDiv').append(clone)
   }
 
 
@@ -142,7 +160,14 @@ function App() {
           onDragEnd = {(e) => Put(e)}
           >=</button>
       </div>
-      <div className='MainAreaDiv' id='MainAreaDiv'>
+      <div 
+        className='MainAreaDiv' 
+        id='MainAreaDiv'
+        draggable="false" 
+        onDragOverCapture = {(e) => DrugIsOver(e)}
+        onDragLeaveCapture = {(e) => DrugIsLeave(e)}
+        onDrop = {(e) => DropItem(e)}
+        >
         <span className='Movehere'>Перетащите сюда</span>
         <span className='AnyElement'>любой элемент</span>
         <span className='FromLeftPanel'>из левой панели</span>
