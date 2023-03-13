@@ -1,16 +1,36 @@
 import React from 'react';
+import { useEffect } from 'react';
 import './App.css';
 
 function App() {
+  useEffect(() => {
+    //устанавливаем по умолчанию конструктор
+    document.getElementById('radio-2').checked = true
+  }, [])
 
   function Runtime() {
     console.log('Runtime')
+    //меняем цвет иконки
     document.getElementById('eye').style.color = "#5D5FEF"
+    document.getElementById('arrowsDiv').style.color = "#4D5562"
+    document.getElementById('arrowsDiv2').style.color = "#4D5562"
+    //запрещаем перетаскивание
+    document.getElementById('InnerScreenDiv').draggable = false
+    document.getElementById('ActionsDiv').draggable = false
+    document.getElementById('NumbersDiv').draggable = false
+    document.getElementById('EqualButton').draggable = false
   }
 
   function Construct() {
     console.log('Constructor')
     document.getElementById('eye').style.color = "#4D5562"
+    document.getElementById('arrowsDiv').style.color = "#5D5FEF"
+    document.getElementById('arrowsDiv2').style.color = "#5D5FEF"
+    //разрешаем перетаскивание
+    document.getElementById('InnerScreenDiv').draggable = true
+    document.getElementById('ActionsDiv').draggable = true
+    document.getElementById('NumbersDiv').draggable = true
+    document.getElementById('EqualButton').draggable = true
   }
 
   function MoveEqualButton(e) {
@@ -36,8 +56,8 @@ function App() {
       <div className='ScreenDiv'>
         
       </div>
-      <div className='InnerScreenDiv'>
-        <span className='ResultSpan' id='ResultSpan' draggable="true" onDragOver={(e) => MoveEqualButton(e)}>0</span>
+      <div className='InnerScreenDiv' id='InnerScreenDiv' draggable="true" onDragOver={(e) => MoveEqualButton(e)}>
+        <span className='ResultSpan'>0</span>
       </div>
       <div className='ActionsDiv' id='ActionsDiv' draggable="true" onDragOver={(e) => MoveEqualButton(e)}>
         <button className='DivideButton'>
