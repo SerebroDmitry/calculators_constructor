@@ -13,6 +13,11 @@ function App() {
     document.getElementById('eye').style.color = "#4D5562"
   }
 
+  function MoveEqualButton(e) {
+    e.preventDefault()
+    console.log(e.currentTarget.id)
+  }
+
   return (
     <div className="App">
       <div className='RunOrConstDiv'>
@@ -32,9 +37,9 @@ function App() {
         
       </div>
       <div className='InnerScreenDiv'>
-        <span className='ResultSpan'>0</span>
+        <span className='ResultSpan' id='ResultSpan' draggable="true" onDragOver={(e) => MoveEqualButton(e)}>0</span>
       </div>
-      <div className='ActionsDiv'>
+      <div className='ActionsDiv' id='ActionsDiv' draggable="true" onDragOver={(e) => MoveEqualButton(e)}>
         <button className='DivideButton'>
           /
         </button>
@@ -48,7 +53,7 @@ function App() {
           +
         </button>
       </div>
-      <div className='NumbersDiv'>
+      <div className='NumbersDiv' id='NumbersDiv' draggable="true" onDragOver={(e) => MoveEqualButton(e)}>
         <button className='Button7'>
           7
         </button>
@@ -84,10 +89,12 @@ function App() {
         </button>
       </div>
       <div className='EqualDiv'>
-        <button className='EqualButton'>=</button>
+        <button className='EqualButton' id='EqualButton' draggable="true" onDragOver={(e) => MoveEqualButton(e)}>=</button>
       </div>
       <div className='MainAreaDiv'>
-        
+        <span className='Movehere'>Перетащите сюда</span>
+        <span className='AnyElement'>любой элемент</span>
+        <span className='FromLeftPanel'>из левой панели</span>
       </div>
     </div>
   );

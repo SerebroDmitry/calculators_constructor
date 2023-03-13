@@ -603,3 +603,46 @@
   font-size: 14px;
   line-height: 15px;
 }
+
+.Movehere {
+    position: absolute;
+    width: 127px;
+    height: 17px;
+    left: 57px;
+    top: 214px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 17px;
+    text-align: center;
+    color: #5D5FEF;
+}
+.AnyElement {
+    position: absolute;
+    width: 106px;
+    height: 30px;
+    left: 68px;
+    top: 236px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    color: #6B7280;
+}
+.FromLeftPanel {
+    position: absolute;
+    width: 106px;
+    height: 30px;
+    left: 68px;
+    top: 250px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    text-align: center;
+    color: #6B7280;
+}
