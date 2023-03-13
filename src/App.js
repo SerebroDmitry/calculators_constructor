@@ -12,8 +12,8 @@ function App() {
     console.log('Runtime')
     //меняем цвет иконки
     document.getElementById('eye').style.color = "#5D5FEF"
-    document.getElementById('arrowsDiv').style.color = "#4D5562"
-    document.getElementById('arrowsDiv2').style.color = "#4D5562"
+    document.getElementById('arrowsDiv').style.border = "2px solid #4D5562"
+    document.getElementById('arrowsDiv2').style.border = "2px solid #4D5562"
     //запрещаем перетаскивание
     document.getElementById('InnerScreenDiv').draggable = false
     document.getElementById('ActionsDiv').draggable = false
@@ -24,8 +24,8 @@ function App() {
   function Construct() {
     console.log('Constructor')
     document.getElementById('eye').style.color = "#4D5562"
-    document.getElementById('arrowsDiv').style.color = "#5D5FEF"
-    document.getElementById('arrowsDiv2').style.color = "#5D5FEF"
+    document.getElementById('arrowsDiv').style.border = "2px solid #5D5FEF"
+    document.getElementById('arrowsDiv2').style.border = "2px solid #5D5FEF"
     //разрешаем перетаскивание
     document.getElementById('InnerScreenDiv').draggable = true
     document.getElementById('ActionsDiv').draggable = true
@@ -33,10 +33,17 @@ function App() {
     document.getElementById('EqualButton').draggable = true
   }
 
-  function MoveEqualButton(e) {
+  function Move(e) {
     e.preventDefault()
     console.log(e.currentTarget.id)
+    document.getElementById('MainAreaDiv').style.backgroundColor = "#F0F9FF"
   }
+  function Put(e) {
+    e.preventDefault()
+    console.log('put')
+    document.getElementById('MainAreaDiv').style.backgroundColor = "#ffffff"
+  }
+
 
   return (
     <div className="App">
@@ -56,10 +63,22 @@ function App() {
       <div className='ScreenDiv'>
         
       </div>
-      <div className='InnerScreenDiv' id='InnerScreenDiv' draggable="true" onDragOver={(e) => MoveEqualButton(e)}>
+      <div 
+        className='InnerScreenDiv' 
+        id='InnerScreenDiv' 
+        draggable="true" 
+        onDragOver = {(e) => Move(e)}
+        onDragEnd = {(e) => Put(e)}
+        >
         <span className='ResultSpan'>0</span>
       </div>
-      <div className='ActionsDiv' id='ActionsDiv' draggable="true" onDragOver={(e) => MoveEqualButton(e)}>
+      <div 
+        className='ActionsDiv' 
+        id='ActionsDiv' 
+        draggable="true" 
+        onDragOver={(e) => Move(e)}
+        onDragEnd = {(e) => Put(e)}
+        >
         <button className='DivideButton'>
           /
         </button>
@@ -73,7 +92,13 @@ function App() {
           +
         </button>
       </div>
-      <div className='NumbersDiv' id='NumbersDiv' draggable="true" onDragOver={(e) => MoveEqualButton(e)}>
+      <div 
+        className='NumbersDiv' 
+        id='NumbersDiv' 
+        draggable="true" 
+        onDragOver={(e) => Move(e)}
+        onDragEnd = {(e) => Put(e)}
+        >
         <button className='Button7'>
           7
         </button>
@@ -109,9 +134,15 @@ function App() {
         </button>
       </div>
       <div className='EqualDiv'>
-        <button className='EqualButton' id='EqualButton' draggable="true" onDragOver={(e) => MoveEqualButton(e)}>=</button>
+        <button 
+          className='EqualButton' 
+          id='EqualButton' 
+          draggable="true" 
+          onDragOver={(e) => Move(e)}
+          onDragEnd = {(e) => Put(e)}
+          >=</button>
       </div>
-      <div className='MainAreaDiv'>
+      <div className='MainAreaDiv' id='MainAreaDiv'>
         <span className='Movehere'>Перетащите сюда</span>
         <span className='AnyElement'>любой элемент</span>
         <span className='FromLeftPanel'>из левой панели</span>
