@@ -59,8 +59,22 @@ function App() {
     clone.id = druggedItem.id + 'Clone'
     clone.className = druggedItem.className + 'Clone'
     clone.draggable = false
-    druggedItem.style.backgroundColor = "#BEBFF9"
-    if (clone === "<div></div>") console.log('div')
+    
+    if (clone.nodeName === "BUTTON") {
+      console.log(clone.nodeName)
+      druggedItem.style.backgroundColor = "#BEBFF9"
+    } else if (clone.nodeName === "DIV") {
+      console.log(druggedItem.id)
+      if (druggedItem.id === "InnerScreenDiv") {
+        druggedItem.style.boxShadow = ""
+        druggedItem.style.color = "#A0A3A9"
+      } else {
+        console.log(druggedItem.id)
+        druggedItem.style.backgroundColor = "#FAFBFB"
+        druggedItem.style.color = "#A0A3A9"
+      }
+    } else console.log(clone.nodeName)
+    
     document.getElementById('MainAreaDiv').append(clone)
   }
 
@@ -89,13 +103,13 @@ function App() {
         draggable="true" 
         onDragOver = {(e) => Move(e)}
         onDragEnd = {(e) => Put(e)}
-        >
-        <span className='ResultSpan'>0</span>
+      >
+        0
       </div>
       <div 
         className='ActionsDiv' 
         id='ActionsDiv' 
-        draggable="true" 
+        draggable = "true" 
         onDragOver={(e) => Move(e)}
         onDragEnd = {(e) => Put(e)}
         >
