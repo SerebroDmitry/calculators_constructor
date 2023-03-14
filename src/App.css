@@ -603,6 +603,28 @@
   font-size: 14px;
   line-height: 15px;
 }
+.EqualButtonClone {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 24px 30px 25px;
+  gap: 10px;
+  position: absolute;
+  width: 232px;
+  height: 64px;
+  margin-left: 4px;
+  margin-top: 4px;
+  background: #5D5FEF;
+  border: 0px solid white;
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: bold;
+  font-size: 14px;
+  line-height: 15px;
+}
 
 .Movehere {
     position: absolute;

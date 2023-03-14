@@ -4,6 +4,7 @@ import './App.css';
 
 function App() {
   let druggedItem = null
+  let ParentOfDruggedItem = null
 
   useEffect(() => {
     //устанавливаем по умолчанию конструктор
@@ -37,14 +38,11 @@ function App() {
 
   function Move(e) {
     e.preventDefault()
-    console.log('drug')
     druggedItem = e.target
-    console.log(druggedItem)
 
   }
   function Put(e) {
     e.preventDefault()
-    console.log('put')
     document.getElementById('MainAreaDiv').style.backgroundColor = "#ffffff"
   }
   function DrugIsOver(e) {
@@ -58,7 +56,11 @@ function App() {
   function DropItem(e) {
     e.preventDefault()
     const clone = druggedItem.cloneNode(true)
-    console.log('drop')
+    clone.id = druggedItem.id + 'Clone'
+    clone.className = druggedItem.className + 'Clone'
+    clone.draggable = false
+    druggedItem.style.backgroundColor = "#BEBFF9"
+    if (clone === "<div></div>") console.log('div')
     document.getElementById('MainAreaDiv').append(clone)
   }
 
