@@ -5,8 +5,8 @@ import './App.css';
 function App() {
   //переменная для хранения перетаскиваемого элемента
   let druggedItem = null
-  //переменная для хранения родителя перетаскиваемого элемента
-  let ParentOfDruggedItem = null
+  //переменная для хранения значения о том перетащили ли му уже что-нибудь
+  let isSomethingDrugged = false
 
   //устанавливаем по умолчанию конструктор
   useEffect(() => {
@@ -45,13 +45,14 @@ function App() {
     e.preventDefault()
     if (( druggedItem === null ) && ( e.target.id !== 'EqualButton' )) druggedItem = e.target.closest('div')
       else if ( e.target.id === 'EqualButton' ) druggedItem = e.target
+    e.target.style.cursor = "move"  
 
   }
 
   //подсвечиваем область приземления
   function DrugIsOver(e) {
     e.preventDefault()
-    document.getElementById('MainAreaDiv').style.backgroundColor = "#F0F9FF"
+    if (isSomethingDrugged === false) document.getElementById('MainAreaDiv').style.backgroundColor = "#F0F9FF"
   }
 
   //убираем подсветку при уходе с зоны дропа
@@ -96,15 +97,17 @@ function App() {
     //после первого перемещения задаем стили окну в которое переместили
     document.getElementById('MainAreaDiv').style.backgroundColor = "#ffffff"
     document.getElementById('MainAreaDiv').style.border = '0px solid white'
-    document.getElementById('Movehere').style.color = 'white'
-    document.getElementById('AnyElement').style.color = 'white'
-    document.getElementById('FromLeftPanel').style.color = 'white'
+    document.getElementById('Movehere').style.display = 'none'
+    document.getElementById('AnyElement').style.display = 'none'
+    document.getElementById('FromLeftPanel').style.display = 'none'
 
     //запрещаем перемещение уже дропнутого элемента
     druggedItem.draggable = false
 
     //обнуляем данные о переносимом элементе
     druggedItem = null
+    //запрещаем подкрашивание окна конструктора после первого перетаскивания
+    isSomethingDrugged = true
   }
 
 
@@ -208,11 +211,13 @@ function App() {
         onDragOverCapture = {(e) => DrugIsOver(e)}
         onDragLeaveCapture = {(e) => DrugIsLeave(e)}
         onDrop = {(e) => DropItem(e)}
-        >
-        <span className='Movehere' id = 'Movehere'>Перетащите сюда</span>
-        <span className='AnyElement' id = 'AnyElement'>любой элемент</span>
-        <span className='FromLeftPanel' id = 'FromLeftPanel'>из левой панели</span>
+      >
       </div>
+
+      <span className='Movehere' id = 'Movehere'>Перетащите сюда</span>
+      <span className='AnyElement' id = 'AnyElement'>любой элемент</span>
+      <span className='FromLeftPanel' id = 'FromLeftPanel'>из левой панели</span>
+
     </div>
   );
 }

@@ -308,7 +308,6 @@
 }
 
 .MainAreaDiv {
-  box-sizing: border-box;
   position: absolute;
   width: 245px;
   height: 448px;
@@ -317,6 +316,12 @@
   background: #ffffff;
   border: 2px dashed #C4C4C4;
   border-radius: 6px;
+
+  display: flex;
+	flex-wrap: wrap;
+  flex-direction: column;
+	justify-content: flex-start;
+	align-content: flex-start;
 }
 
 .ActionsButton {
@@ -341,71 +346,6 @@
   line-height: 15px;
 }
 
-.MultipleButton {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  width: 52px;
-  height: 48px;
-  margin-left: 64px;
-  margin-top: 4px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-}
-
-.MinusButton {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  width: 52px;
-  height: 48px;
-  margin-left: 124px;
-  margin-top: 4px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-}
-
-.PlusButton {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
-  position: absolute;
-  width: 52px;
-  height: 48px;
-  margin-left: 184px;
-  margin-top: 4px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-}
 
 .EqualButton {
   display: flex;
@@ -456,8 +396,8 @@
     position: absolute;
     width: 127px;
     height: 17px;
-    left: 57px;
-    top: 214px;
+    margin-left: 430px;
+    top: 321px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: bold;
@@ -470,8 +410,8 @@
     position: absolute;
     width: 106px;
     height: 30px;
-    left: 68px;
-    top: 236px;
+    margin-left: 440px;
+    top: 342px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 400;
@@ -484,8 +424,8 @@
     position: absolute;
     width: 106px;
     height: 30px;
-    left: 68px;
-    top: 250px;
+    margin-left: 440px;
+    top: 358px;
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
