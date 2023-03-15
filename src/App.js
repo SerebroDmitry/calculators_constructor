@@ -80,9 +80,14 @@ function App() {
           let parent = druggedItem.parentElement
           parent.style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0.06), 0px 0px 0px rgba(0, 0, 0, 0.1)'
           druggedItem.style.color = "#A0A3A9"
+          druggedItem.style.backgroundColor = "FAFBFB"
         } else {
           druggedItem.style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0.06), 0px 0px 0px rgba(0, 0, 0, 0.1)'
           druggedItem.style.color = "#A0A3A9"
+          for (var i=0; i<druggedItem.childNodes.length; i++) {
+            druggedItem.childNodes[i].style.color = "#999999"
+            druggedItem.childNodes[i].style.border = "1px solid #F3F4F5"
+          }
         }
     } 
     //вставляем клона
@@ -135,16 +140,16 @@ function App() {
         draggable = "true" 
         onDragOver={(e) => Move(e)}
         >
-        <button className='DivideButton'>
+        <button className='ActionsButton'>
           /
         </button>
-        <button className='MultipleButton'>
+        <button className='ActionsButton'>
           x
         </button>
-        <button className='MinusButton'>
+        <button className='ActionsButton'>
           -
         </button>
-        <button className='PlusButton'>
+        <button className='ActionsButton'>
           +
         </button>
       </div>
@@ -154,37 +159,37 @@ function App() {
         draggable="true" 
         onDragOver={(e) => Move(e)}
         >
-        <button className='Button7'>
+        <button className='ButtonX'>
           7
         </button>
-        <button className='Button8'>
+        <button className='ButtonX'>
           8
         </button>
-        <button className='Button9'>
+        <button className='ButtonX'>
           9
         </button>
-        <button className='Button4'>
+        <button className='ButtonX'>
           4
         </button>
-        <button className='Button5'>
+        <button className='ButtonX'>
           5
         </button>
-        <button className='Button6'>
+        <button className='ButtonX'>
           6
         </button>
-        <button className='Button1'>
+        <button className='ButtonX'>
           1
         </button>
-        <button className='Button2'>
+        <button className='ButtonX'>
           2
         </button>
-        <button className='Button3'>
+        <button className='ButtonX'>
           3
         </button>
-        <button className='Button0'>
+        <button className='Button2X'>
           0
         </button>
-        <button className='Button00'>
+        <button className='ButtonX'>
           ,
         </button>
       </div>

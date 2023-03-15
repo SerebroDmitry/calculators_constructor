@@ -189,9 +189,6 @@
   padding: 4px 8px;
 }
 
-.ResultSpan {
-}
-
 .ActionsDiv {
   position: absolute;
   width: 240px;
@@ -201,6 +198,19 @@
   background: #ffffff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.06), 0px 4px 6px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr 3fr;
+  grid-area: "A B C D";
+}
+.ActionsDivClone {
+  position: absolute;
+  width: 240px;
+  height: 56px;
+  background: #ffffff;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 3fr 3fr 3fr 3fr;
+  grid-area: "A B C D";
 }
 
 .NumbersDiv {
@@ -222,23 +232,38 @@
             "G H I"
             "J J K";
 }
-.Button7 {
+.NumbersDivClone {
+  position: absolute;
+  width: 240px;
+  height: 224px;
+  padding-bottom: 4px;
+  background: #FFFFFF;
+  border-radius: 4px;
+  display: grid;
+  grid-template-columns: 4fr 4fr 4fr;
+  grid-template-rows: 3fr 3fr 3fr 3fr;
+  grid-template-areas: 
+            "A B C"
+            "D E F"
+            "G H I"
+            "J J K";
+}
+.ButtonX {
   box-sizing: border-box;
   display: flex;
-  grid-area: A;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   padding: 24px 30px 25px;
   gap: 10px;
-  position: absolute;
   width: 72px;
   height: 48px;
   background: #FFFFFF;
   border: 1px solid #E2E3E5;
   border-radius: 6px;
-  margin-left: 4px;
-  margin-top: 4px;
+  margin: 3px;
+
   font-family: 'Inter';
   font-style: normal;
   font-weight: bold;
@@ -246,240 +271,23 @@
   line-height: 15px;
   color: #000000; 
 }
-.Button8 {
-  box-sizing: border-box;
-  display: flex;
-  grid-area: B;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 30px 25px;
-  gap: 10px;
-  position: absolute;
-  width: 72px;
-  height: 48px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  margin-left: 4px;
-  margin-top: 4px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-  color: #000000; 
-}
-.Button9 {
-  box-sizing: border-box;
-  display: flex;
-  grid-area: C;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 30px 25px;
-  gap: 10px;
-  position: absolute;
-  width: 72px;
-  height: 48px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  margin-left: 4px;
-  margin-top: 4px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-  color: #000000; 
-}
-.Button4 {
-  box-sizing: border-box;
-  display: flex;
-  grid-area: D;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 30px 25px;
-  gap: 10px;
-  position: absolute;
-  width: 72px;
-  height: 48px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  margin-left: 4px;
-  margin-top: 4px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-  color: #000000; 
-}
-.Button5 {
-  box-sizing: border-box;
-  display: flex;
-  grid-area: E;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 30px 25px;
-  gap: 10px;
-  position: absolute;
-  width: 72px;
-  height: 48px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  margin-left: 4px;
-  margin-top: 4px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-  color: #000000; 
-}
-.Button6 {
-  box-sizing: border-box;
-  display: flex;
-  grid-area: F;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 30px 25px;
-  gap: 10px;
-  position: absolute;
-  width: 72px;
-  height: 48px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  margin-left: 4px;
-  margin-top: 4px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-  color: #000000; 
-}
-.Button1 {
-  box-sizing: border-box;
-  display: flex;
-  grid-area: G;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 30px 25px;
-  gap: 10px;
-  position: absolute;
-  width: 72px;
-  height: 48px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  margin-left: 4px;
-  margin-top: 4px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-  color: #000000; 
-}
-.Button2 {
-  box-sizing: border-box;
-  display: flex;
-  grid-area: H;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 30px 25px;
-  gap: 10px;
-  position: absolute;
-  width: 72px;
-  height: 48px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  margin-left: 4px;
-  margin-top: 4px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-  color: #000000; 
-}
-.Button3 {
-  box-sizing: border-box;
-  display: flex;
-  grid-area: I;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 30px 25px;
-  gap: 10px;
-  position: absolute;
-  width: 72px;
-  height: 48px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  margin-left: 4px;
-  margin-top: 4px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-  color: #000000; 
-}
-.Button0 {
+.Button2X {
   box-sizing: border-box;
   display: flex;
   grid-area: J;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   padding: 24px 30px 25px;
   gap: 10px;
-  position: absolute;
   width: 152px;
   height: 48px;
   background: #FFFFFF;
   border: 1px solid #E2E3E5;
   border-radius: 6px;
-  margin-left: 4px;
-  margin-top: 4px;
-  margin-bottom: 4px;
-  font-family: 'Inter';
-  font-style: normal;
-  font-weight: bold;
-  font-size: 14px;
-  line-height: 15px;
-  color: #000000; 
-}
-.Button00 {
-  box-sizing: border-box;
-  display: flex;
-  grid-area: K;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 24px 30px 25px;
-  gap: 10px;
-  position: absolute;
-  width: 72px;
-  height: 46px;
-  background: #FFFFFF;
-  border: 1px solid #E2E3E5;
-  border-radius: 6px;
-  margin-left: 4px;
-  margin-top: 4px;
+  margin: 3px;
+
   font-family: 'Inter';
   font-style: normal;
   font-weight: bold;
@@ -511,21 +319,21 @@
   border-radius: 6px;
 }
 
-.DivideButton {
+.ActionsButton {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   gap: 10px;
-  position: absolute;
   width: 52px;
   height: 48px;
-  margin-left: 4px;
-  margin-top: 4px;
   background: #FFFFFF;
   border: 1px solid #E2E3E5;
   border-radius: 6px;
+  margin: 4px;
+
   font-family: 'Inter';
   font-style: normal;
   font-weight: bold;
