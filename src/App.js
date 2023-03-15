@@ -44,15 +44,16 @@ function App() {
   function Move(e) {
     e.preventDefault()
     if (( druggedItem === null ) && ( e.target.id !== 'EqualButton' )) druggedItem = e.target.closest('div')
-      else if ( e.target.id === 'EqualButton' ) druggedItem = e.target
-    e.target.style.cursor = "move"  
-
+      else if ( e.target.id === 'EqualButton' ) druggedItem = e.target  
   }
 
   //подсвечиваем область приземления
   function DrugIsOver(e) {
     e.preventDefault()
-    if (isSomethingDrugged === false) document.getElementById('MainAreaDiv').style.backgroundColor = "#F0F9FF"
+    if (isSomethingDrugged === false) {
+      document.getElementById('MainAreaDiv').style.backgroundColor = "#F0F9FF"
+    }
+     
   }
 
   //убираем подсветку при уходе с зоны дропа
@@ -69,6 +70,7 @@ function App() {
     clone.id = druggedItem.id + 'Clone'
     clone.className = druggedItem.className + 'Clone'
     clone.draggable = false
+    clone.style.position = 'relative'
     
     //задаем стили тем элементам, что мы перетаскивали и от которых мы делали клонов
     if (clone.nodeName === "BUTTON") {
@@ -92,7 +94,7 @@ function App() {
         }
     } 
     //вставляем клона
-    document.getElementById('MainAreaDiv').append(clone)
+    document.getElementById('MainAreaDiv').appendChild(clone)
 
     //после первого перемещения задаем стили окну в которое переместили
     document.getElementById('MainAreaDiv').style.backgroundColor = "#ffffff"
@@ -112,7 +114,7 @@ function App() {
 
 
   return (
-    <div className="App">
+    <div className="App" id='App'>
       <div className='RunOrConstDiv'>
           <div className="RunOrConstDiv-item">
             <div className="eye" id='eye'></div>
@@ -131,7 +133,7 @@ function App() {
           className='InnerScreenDiv' 
           id='InnerScreenDiv' 
           draggable="true" 
-          onDragOver = {(e) => Move(e)}
+          onDragOver={(e) => Move(e)}
         >
           0
         </div>
