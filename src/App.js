@@ -43,7 +43,8 @@ function App() {
   //начинаем перемещение
   function Move(e) {
     e.preventDefault()
-    if ( druggedItem === null ) druggedItem = e.target
+    if (( druggedItem === null ) && ( e.target.id !== 'EqualButton' )) druggedItem = e.target.closest('div')
+      else if ( e.target.id === 'EqualButton' ) druggedItem = e.target
 
   }
 
@@ -67,28 +68,35 @@ function App() {
     clone.id = druggedItem.id + 'Clone'
     clone.className = druggedItem.className + 'Clone'
     clone.draggable = false
-    document.getElementById('MainAreaDiv').style.backgroundColor = "#ffffff"
     
     //задаем стили тем элементам, что мы перетаскивали и от которых мы делали клонов
     if (clone.nodeName === "BUTTON") {
-      console.log(clone.nodeName)
       druggedItem.style.backgroundColor = "#BEBFF9"
+      let parent = druggedItem.parentElement
+      parent.style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0.06), 0px 0px 0px rgba(0, 0, 0, 0.1)'
     } else if (clone.nodeName === "DIV") {
-      console.log(druggedItem.id)
-      if (druggedItem.id === "InnerScreenDiv") {
-        // ищем родителя для отмены теней
-        let parent = druggedItem.parentElement
-        console.log(parent)
-        parent.style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0.06), 0px 0px 0px rgba(0, 0, 0, 0.1)'
-        druggedItem.style.color = "#A0A3A9"
-      } else {
-        druggedItem.style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0.06), 0px 0px 0px rgba(0, 0, 0, 0.1)'
-        console.log(druggedItem.id)
-        druggedItem.style.color = "#A0A3A9"
-      }
-    } else console.log(clone.nodeName)
-    
+        if (druggedItem.id === "InnerScreenDiv") {
+          // ищем родителя для отмены теней
+          let parent = druggedItem.parentElement
+          parent.style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0.06), 0px 0px 0px rgba(0, 0, 0, 0.1)'
+          druggedItem.style.color = "#A0A3A9"
+        } else {
+          druggedItem.style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0.06), 0px 0px 0px rgba(0, 0, 0, 0.1)'
+          druggedItem.style.color = "#A0A3A9"
+        }
+    } 
+    //вставляем клона
     document.getElementById('MainAreaDiv').append(clone)
+
+    //после первого перемещения задаем стили окну в которое переместили
+    document.getElementById('MainAreaDiv').style.backgroundColor = "#ffffff"
+    document.getElementById('MainAreaDiv').style.border = '0px solid white'
+    document.getElementById('Movehere').style.color = 'white'
+    document.getElementById('AnyElement').style.color = 'white'
+    document.getElementById('FromLeftPanel').style.color = 'white'
+
+    //запрещаем перемещение уже дропнутого элемента
+    druggedItem.draggable = false
 
     //обнуляем данные о переносимом элементе
     druggedItem = null
@@ -196,9 +204,9 @@ function App() {
         onDragLeaveCapture = {(e) => DrugIsLeave(e)}
         onDrop = {(e) => DropItem(e)}
         >
-        <span className='Movehere'>Перетащите сюда</span>
-        <span className='AnyElement'>любой элемент</span>
-        <span className='FromLeftPanel'>из левой панели</span>
+        <span className='Movehere' id = 'Movehere'>Перетащите сюда</span>
+        <span className='AnyElement' id = 'AnyElement'>любой элемент</span>
+        <span className='FromLeftPanel' id = 'FromLeftPanel'>из левой панели</span>
       </div>
     </div>
   );
