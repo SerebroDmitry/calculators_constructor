@@ -3,14 +3,17 @@ import { useEffect } from 'react';
 import './App.css';
 
 function App() {
+  //переменная для хранения перетаскиваемого элемента
   let druggedItem = null
+  //переменная для хранения родителя перетаскиваемого элемента
   let ParentOfDruggedItem = null
 
+  //устанавливаем по умолчанию конструктор
   useEffect(() => {
-    //устанавливаем по умолчанию конструктор
     document.getElementById('radio-2').checked = true
   }, [])
 
+  //активация возможности вычисления
   function Runtime() {
     console.log('Runtime')
     //меняем цвет иконки
@@ -24,6 +27,7 @@ function App() {
     document.getElementById('EqualButton').draggable = false
   }
 
+  //активация возможности конструктора
   function Construct() {
     console.log('Constructor')
     document.getElementById('eye').style.color = "#4D5562"
@@ -36,46 +40,58 @@ function App() {
     document.getElementById('EqualButton').draggable = true
   }
 
+  //начинаем перемещение
   function Move(e) {
     e.preventDefault()
-    druggedItem = e.target
+    if ( druggedItem === null ) druggedItem = e.target
 
   }
-  function Put(e) {
-    e.preventDefault()
-    document.getElementById('MainAreaDiv').style.backgroundColor = "#ffffff"
-  }
+
+  //подсвечиваем область приземления
   function DrugIsOver(e) {
     e.preventDefault()
     document.getElementById('MainAreaDiv').style.backgroundColor = "#F0F9FF"
   }
+
+  //убираем подсветку при уходе с зоны дропа
   function DrugIsLeave(e) {
     e.preventDefault()
     document.getElementById('MainAreaDiv').style.backgroundColor = "#ffffff"
   }
+
+  //бросаем элемент
   function DropItem(e) {
     e.preventDefault()
+    //создаем клон перетаскиваемого элемента и меняем ему айди и класснэйм
     const clone = druggedItem.cloneNode(true)
     clone.id = druggedItem.id + 'Clone'
     clone.className = druggedItem.className + 'Clone'
     clone.draggable = false
+    document.getElementById('MainAreaDiv').style.backgroundColor = "#ffffff"
     
+    //задаем стили тем элементам, что мы перетаскивали и от которых мы делали клонов
     if (clone.nodeName === "BUTTON") {
       console.log(clone.nodeName)
       druggedItem.style.backgroundColor = "#BEBFF9"
     } else if (clone.nodeName === "DIV") {
       console.log(druggedItem.id)
       if (druggedItem.id === "InnerScreenDiv") {
-        druggedItem.style.boxShadow = ""
+        // ищем родителя для отмены теней
+        let parent = druggedItem.parentElement
+        console.log(parent)
+        parent.style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0.06), 0px 0px 0px rgba(0, 0, 0, 0.1)'
         druggedItem.style.color = "#A0A3A9"
       } else {
+        druggedItem.style.boxShadow = '0px 0px 0px rgba(0, 0, 0, 0.06), 0px 0px 0px rgba(0, 0, 0, 0.1)'
         console.log(druggedItem.id)
-        druggedItem.style.backgroundColor = "#FAFBFB"
         druggedItem.style.color = "#A0A3A9"
       }
     } else console.log(clone.nodeName)
     
     document.getElementById('MainAreaDiv').append(clone)
+
+    //обнуляем данные о переносимом элементе
+    druggedItem = null
   }
 
 
@@ -94,24 +110,22 @@ function App() {
             <label htmlFor="radio-2">Constructor</label>
           </div>
       </div>
-      <div className='ScreenDiv'>
-        
+      <div className='ScreenDiv' id = 'ScreenDiv'>
+        <div 
+          className='InnerScreenDiv' 
+          id='InnerScreenDiv' 
+          draggable="true" 
+          onDragOver = {(e) => Move(e)}
+        >
+          0
+        </div>
       </div>
-      <div 
-        className='InnerScreenDiv' 
-        id='InnerScreenDiv' 
-        draggable="true" 
-        onDragOver = {(e) => Move(e)}
-        onDragEnd = {(e) => Put(e)}
-      >
-        0
-      </div>
+      
       <div 
         className='ActionsDiv' 
         id='ActionsDiv' 
         draggable = "true" 
         onDragOver={(e) => Move(e)}
-        onDragEnd = {(e) => Put(e)}
         >
         <button className='DivideButton'>
           /
@@ -131,7 +145,6 @@ function App() {
         id='NumbersDiv' 
         draggable="true" 
         onDragOver={(e) => Move(e)}
-        onDragEnd = {(e) => Put(e)}
         >
         <button className='Button7'>
           7
@@ -173,7 +186,6 @@ function App() {
           id='EqualButton' 
           draggable="true" 
           onDragOver={(e) => Move(e)}
-          onDragEnd = {(e) => Put(e)}
           >=</button>
       </div>
       <div 
